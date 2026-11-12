@@ -1,0 +1,26 @@
+[package]
+name = "sourcedigger-server"
+version = "0.1.0"
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+anyhow = "1.0.104"
+axum = "0.8.9"
+clap = { version = "4.6.7", features = ["derive", "env"] }
+dirs = "7.0.0"
+git2 = { version = "0.21.0", default-features = false }
+mimalloc = "0.1.52"
+regex = "1.13.1"
+rusqlite = { version = "0.42.0", features = ["bundled", "fallible_uint", "functions"] }
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.154"
+sourcedigger-index = { version = "0.1.0", path = "../sourcedigger-index" }
+tokio = { version = "1.54.1", features = ["rt-multi-thread", "macros", "net"] }
+tower-http = { version = "0.7.1", features = ["compression-br", "compression-gzip", "fs", "set-header"] }
+tracing = "0.1.44"
+tracing-subscriber = { version = "0.3.23", features = ["env-filter"] }
+
+[dev-dependencies]
+tempfile = "3.27.0"
+ureq = { version = "3.5.1", features = ["json"] }

@@ -1,0 +1,19 @@
+[Unit]
+Description=SourceDigger, the history of C symbols across versions
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Environment=SOURCEDIGGER_DATA_DIRECTORY=/var/lib/sourcedigger
+Environment=SOURCEDIGGER_WEB_DIRECTORY=/usr/share/sourcedigger/web
+ExecStart=/usr/bin/sourcedigger-server
+DynamicUser=yes
+StateDirectory=sourcedigger
+Restart=on-failure
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+NoNewPrivileges=yes
+
+[Install]
+WantedBy=multi-user.target

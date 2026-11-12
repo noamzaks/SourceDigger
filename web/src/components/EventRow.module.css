@@ -1,0 +1,109 @@
+.row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--mantine-spacing-sm);
+  padding: 8px var(--mantine-spacing-xs);
+  border-bottom: 1px solid var(--mantine-color-default-border);
+}
+
+.action {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--mantine-radius-sm);
+}
+
+.action[data-action='added'] {
+  color: var(--mantine-color-green-light-color);
+  background: var(--mantine-color-green-light);
+}
+
+.action[data-action='removed'] {
+  color: var(--mantine-color-red-light-color);
+  background: var(--mantine-color-red-light);
+}
+
+.action[data-action='modified'] {
+  color: var(--mantine-color-yellow-light-color);
+  background: var(--mantine-color-yellow-light);
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.meta {
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  max-width: 40%;
+}
+
+.inlineMeta {
+  display: none;
+  align-items: center;
+  gap: var(--mantine-spacing-xs);
+}
+
+@media (max-width: 48em) {
+  .meta {
+    display: none;
+  }
+
+  .inlineMeta {
+    display: flex;
+  }
+}
+
+.signature {
+  font-family: var(--mantine-font-family-monospace);
+  font-size: var(--mantine-font-size-sm);
+  line-height: var(--mantine-line-height);
+  word-break: break-word;
+}
+
+.kind {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 6px;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 18px;
+  border: 1px solid var(--mantine-color-default-border);
+  border-radius: var(--mantine-radius-sm);
+}
+
+.location {
+  font-family: var(--mantine-font-family-monospace);
+  font-size: var(--mantine-font-size-xs);
+  color: var(--mantine-color-dimmed);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.location:hover {
+  text-decoration: underline;
+}
+
+.note {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: var(--mantine-font-size-xs);
+  color: var(--mantine-color-dimmed);
+}
+
+.note > .signature {
+  flex: 1;
+}
