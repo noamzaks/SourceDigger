@@ -1,0 +1,89 @@
+{
+  "name": "sourcedigger",
+  "displayName": "SourceDigger",
+  "description": "Hover a C symbol to see when it was added, how often it changed and how it is exported, and diff its code between versions, from a SourceDigger server",
+  "version": "0.1.1",
+  "publisher": "sourcedigger",
+  "license": "AGPL-3.0-only",
+  "private": true,
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onLanguage:c"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "sourcedigger.history",
+        "title": "History",
+        "category": "SourceDigger"
+      },
+      {
+        "command": "sourcedigger.compare",
+        "title": "Compare Versions",
+        "category": "SourceDigger"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "sourcedigger.history",
+          "when": "editorLangId == c",
+          "group": "navigation@90"
+        },
+        {
+          "command": "sourcedigger.compare",
+          "when": "editorLangId == c",
+          "group": "navigation@91"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "SourceDigger",
+      "properties": {
+        "sourcedigger.url": {
+          "type": "string",
+          "default": "http://127.0.0.1:2468",
+          "description": "The SourceDigger server"
+        },
+        "sourcedigger.source": {
+          "type": "string",
+          "default": "",
+          "description": "The source this workspace belongs to; empty to match the git remotes against the sources' repositories"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "esbuild src/extension.ts --bundle --platform=node --format=cjs --external:vscode --outfile=out/extension.js && node icon.mjs",
+    "check": "tsc --noEmit && oxlint && prettier --check .",
+    "test": "vitest run",
+    "package": "npm run build && vsce package --allow-missing-repository --out out/sourcedigger.vsix"
+  },
+  "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
+    "@types/node": "^22.20.5",
+    "@types/vscode": "^1.90.0",
+    "@vscode/vsce": "^4.1.1",
+    "diff": "^9.0.0",
+    "esbuild": "^0.28.2",
+    "oxlint": "^1.94.0",
+    "prettier": "^3.10.1",
+    "typescript": "~7.0.2",
+    "vitest": "^5.1.0"
+  },
+  "icon": "out/icon.png",
+  "keywords": [
+    "c",
+    "history",
+    "git",
+    "symbols",
+    "linux",
+    "export"
+  ]
+}

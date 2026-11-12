@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="alternate"
+      type="text/markdown"
+      href="/llms.txt"
+      title="API for scripts and agents"
+    />
+    <title>SourceDigger</title>
+  </head>
+  <body>
+    <noscript>
+      SourceDigger shows when the symbols of C projects were added, removed or changed. This page
+      needs JavaScript; scripts and language models can read <a href="/llms.txt">/llms.txt</a>,
+      which describes the JSON API under <a href="/api">/api</a> that serves everything shown here.
+    </noscript>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

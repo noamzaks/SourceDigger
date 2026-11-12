@@ -1,0 +1,8 @@
+src/**
+node_modules/**
+tsconfig.json
+.prettier*
+**/*.map
+out/*.vsix
+.oxlintrc.json
+icon.mjs

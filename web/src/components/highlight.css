@@ -1,0 +1,29 @@
+.code-comment {
+  color: var(--mantine-color-dimmed);
+}
+
+.code-keyword {
+  color: var(--mantine-color-grape-text);
+}
+
+.code-type {
+  color: var(--mantine-color-teal-text);
+}
+
+.code-literal {
+  color: var(--mantine-color-green-text);
+}
+
+.code-name {
+  color: var(--mantine-color-orange-text);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.code-added {
+  background-color: var(--mantine-color-green-light);
+}
+
+.code-removed {
+  background-color: var(--mantine-color-red-light);
+}

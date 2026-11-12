@@ -1,0 +1,14 @@
+import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite'
+
+export default defineConfig({
+  plugins: [react()],
+  server: {
+    proxy: Object.fromEntries(
+      ['/api', '/llms.txt'].map((path) => [
+        path,
+        process.env.SOURCEDIGGER_SERVER ?? 'http://127.0.0.1:2468',
+      ]),
+    ),
+  },
+})
